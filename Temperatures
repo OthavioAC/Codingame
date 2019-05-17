@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+int main()
+{
+    int n; // the number of temperatures to analyse
+    int max = 9999;
+    int c;
+    cin >> n; cin.ignore();
+    for (int i = 0; i < n; i++) {
+        int t; // a temperature expressed as an integer ranging from -273 to 5526
+        cin >> t; cin.ignore();
+        
+        if (max-t==0||t-max==0)
+        {
+          if (t>0)
+          {
+              max=-t;
+          }
+        }
+        else
+        {
+            if (t>0)
+            {
+                if (t<max)
+                {
+                    max = t;
+                    c=0;
+                }
+            }
+            else
+            {
+                t=-t;
+                if (t<max)
+                {
+                    max = t;
+                    c=1;
+                }
+                
+            }
+        }
+    }
+
+    // Write an action using cout. DON'T FORGET THE "<< endl"
+    // To debug: cerr << "Debug messages..." << endl;
+    if (max==9999)
+    {
+        cout << 0 << endl; 
+    }
+    else
+    {
+        if (c==1)
+        {
+           cout << -max << endl; 
+        }
+        if (c==0)
+        {
+            cout << max << endl;
+        }   
+    }
+   
+    
+}
