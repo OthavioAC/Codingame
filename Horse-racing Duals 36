@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+int main()
+{
+    int N;
+    int P=100000;
+    int test;
+    cin >> N; cin.ignore();
+    int C[N+1];
+    for (int i = 0; i < N; i++) {
+        int Pi;
+        cin >> Pi; cin.ignore();
+        C[i] = Pi;
+    }
+    
+    for (int i = 0; i < N; i++) 
+    {
+        for (int i2 = 0; i2 < N; i2++)
+        {
+            if((C[i]-C[i2]<P)&&(C[i]-C[i2]!=0))
+            {
+                test = C[i]-C[i2];
+                if (test<0)
+                {
+                    test = test*-1;
+                    if (test<P)
+                    {
+                        P = test;  
+                    }
+                }
+            }
+        }
+    }
+    // Write an action using cout. DON'T FORGET THE "<< endl"
+    // To debug: cerr << "Debug messages..." << endl;
+
+    cout << P << endl;
+}
